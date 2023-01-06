@@ -71,7 +71,6 @@ RUN yum update -y -q \
 # Default root dir
 ENV XC_ROOTDIR /xrootd
 
-# ADD supervisord.d/* /etc/supervisord.d/
 ADD image-config.d/* /etc/osg/image-config.d/
 RUN mkdir -p /etc/grid-security
 # link secrets
@@ -133,4 +132,5 @@ RUN /tmp/scan_versions.sh
 VOLUME /xrootd
 
 COPY etc/supervisord.conf /etc/supervisord.conf
+ADD etc/supervisord.d/* /etc/supervisord.d/
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
