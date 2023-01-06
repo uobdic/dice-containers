@@ -71,7 +71,6 @@ RUN yum update -y -q \
 # Default root dir
 ENV XC_ROOTDIR /xrootd
 
-ADD image-config.d/* /etc/osg/image-config.d/
 RUN mkdir -p /etc/grid-security
 # link secrets
 RUN rm -f /etc/grid-security/ban-mapfile \
